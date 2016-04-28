@@ -1,15 +1,56 @@
 {
-  "name": "2.2.6",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "request",
+  "description": "Simplified HTTP request client.",
+  "tags": [
+    "http",
+    "simple",
+    "util",
+    "utility"
+  ],
+  "version": "2.2.6",
+  "author": {
+    "name": "Mikeal Rogers",
+    "email": "mikeal.rogers@gmail.com"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "request": "^2.2.6"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikeal/request.git"
+  },
+  "bugs": {
+    "url": "http://github.com/mikeal/request/issues"
+  },
+  "engines": [
+    "node >= 0.3.6"
+  ],
+  "main": "./main",
+  "scripts": {
+    "test": "bash tests/run.sh"
+  },
+  "_npmJsonOpts": {
+    "file": "/Users/mikeal/.npm/request/2.2.6/package/package.json",
+    "wscript": false,
+    "contributors": false,
+    "serverjs": false
+  },
+  "_id": "request@2.2.6",
+  "dependencies": {},
+  "devDependencies": {},
+  "_engineSupported": true,
+  "_npmVersion": "1.0.24",
+  "_nodeVersion": "v0.4.10-pre",
+  "_defaultsLoaded": true,
+  "dist": {
+    "shasum": "87dbd87959d1b85ce07253f9255878f20473d99e",
+    "tarball": "http://registry.npmjs.org/request/-/request-2.2.6.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "mikeal",
+      "email": "mikeal.rogers@gmail.com"
+    }
+  ],
+  "directories": {},
+  "_shasum": "87dbd87959d1b85ce07253f9255878f20473d99e",
+  "_resolved": "https://registry.npmjs.org/request/-/request-2.2.6.tgz",
+  "_from": "request@2.2.6"
 }

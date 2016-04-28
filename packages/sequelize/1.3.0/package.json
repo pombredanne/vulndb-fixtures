@@ -1,15 +1,67 @@
 {
-  "name": "1.3.0",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "sequelize",
+  "description": "MySQL ORM for Node.JS",
+  "version": "1.3.0",
+  "author": {
+    "name": "Sascha Depold",
+    "email": "sascha@depold.com"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "contributors": [
+    {
+      "name": "Sascha Depold",
+      "email": "sascha@depold.com"
+    }
+  ],
   "dependencies": {
-    "sequelize": "^1.3.0"
-  }
+    "mysql": "0.9.x",
+    "underscore": "1.2.x",
+    "underscore.string": "2.0.x",
+    "lingo": "0.0.x",
+    "validator": "0.3.x",
+    "moment": "1.1.x",
+    "commander": "0.5.x"
+  },
+  "devDependencies": {
+    "jasmine-node": "1.0.x",
+    "sqlite3": ">=2.0.0"
+  },
+  "keywords": [
+    "mysql",
+    "orm",
+    "nodejs",
+    "object relational mapper"
+  ],
+  "main": "index",
+  "scripts": {},
+  "bin": {
+    "sequelize": "bin/sequelize"
+  },
+  "engines": {
+    "node": ">=0.4.6"
+  },
+  "license": "MIT",
+  "_npmUser": {
+    "name": "sdepold",
+    "email": "sascha@depold.com"
+  },
+  "_id": "sequelize@1.3.0",
+  "_engineSupported": true,
+  "_npmVersion": "1.0.106",
+  "_nodeVersion": "v0.6.2",
+  "_defaultsLoaded": true,
+  "dist": {
+    "shasum": "efb2d91c19ccfa026a908671e5b0b2774d116beb",
+    "tarball": "https://registry.npmjs.org/sequelize/-/sequelize-1.3.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "sdepold",
+      "email": "sascha@depold.com"
+    }
+  ],
+  "directories": {},
+  "deprecated": "security/injection issue with limit/offset fixed in 3.17.0",
+  "_shasum": "efb2d91c19ccfa026a908671e5b0b2774d116beb",
+  "_resolved": "https://registry.npmjs.org/sequelize/-/sequelize-1.3.0.tgz",
+  "_from": "sequelize@1.3.0"
 }

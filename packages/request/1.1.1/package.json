@@ -1,15 +1,42 @@
 {
-  "name": "1.1.1",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "request",
+  "description": "Simplified HTTP request client.",
+  "tags": [
+    "http",
+    "simple",
+    "util",
+    "utility"
+  ],
+  "version": "1.1.1",
+  "author": {
+    "name": "Mikeal Rogers",
+    "email": "mikeal.rogers@gmail.com"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "request": "^1.1.1"
-  }
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/mikeal/request.git"
+  },
+  "bugs": {
+    "url": "http://github.com/mikeal/request/issues"
+  },
+  "engines": [
+    "node < 0.3.6"
+  ],
+  "main": "./main",
+  "_id": "request@1.1.1",
+  "_engineSupported": false,
+  "_npmVersion": "0.2.15",
+  "_nodeVersion": "v0.3.7-pre",
+  "directories": {},
+  "files": [
+    ""
+  ],
+  "_defaultsLoaded": true,
+  "dist": {
+    "shasum": "6d6581049397c51e1b0e98eca7bfd29c0c8a4f6f",
+    "tarball": "http://registry.npmjs.org/request/-/request-1.1.1.tgz"
+  },
+  "_shasum": "6d6581049397c51e1b0e98eca7bfd29c0c8a4f6f",
+  "_resolved": "https://registry.npmjs.org/request/-/request-1.1.1.tgz",
+  "_from": "request@1.1.1"
 }

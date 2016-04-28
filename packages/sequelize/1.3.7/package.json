@@ -1,15 +1,77 @@
 {
-  "name": "1.3.7",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "sequelize",
+  "description": "MySQL ORM for Node.JS",
+  "version": "1.3.7",
+  "author": {
+    "name": "Sascha Depold",
+    "email": "sascha@depold.com"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "contributors": [
+    {
+      "name": "Sascha Depold",
+      "email": "sascha@depold.com"
+    },
+    {
+      "name": "Meg Sharkey",
+      "email": "meg@metamarkets.com"
+    },
+    {
+      "name": "Chase Geigle",
+      "email": "sky@skytrife.com"
+    }
+  ],
   "dependencies": {
-    "sequelize": "^1.3.7"
-  }
+    "mysql": "0.9.x",
+    "underscore": "1.2.x",
+    "underscore.string": "2.0.x",
+    "lingo": "0.0.x",
+    "validator": "0.3.x",
+    "moment": "1.1.x",
+    "commander": "0.5.x"
+  },
+  "devDependencies": {
+    "jasmine-node": "1.0.x",
+    "sqlite3": ">=2.0.0"
+  },
+  "keywords": [
+    "mysql",
+    "orm",
+    "nodejs",
+    "object relational mapper"
+  ],
+  "main": "index",
+  "scripts": {
+    "test": "./node_modules/.bin/jasmine-node spec/"
+  },
+  "bin": {
+    "sequelize": "bin/sequelize"
+  },
+  "engines": {
+    "node": ">=0.4.6"
+  },
+  "license": "MIT",
+  "_npmUser": {
+    "name": "sdepold",
+    "email": "sascha@depold.com"
+  },
+  "_id": "sequelize@1.3.7",
+  "_engineSupported": true,
+  "_npmVersion": "1.0.106",
+  "_nodeVersion": "v0.6.2",
+  "_defaultsLoaded": true,
+  "dist": {
+    "shasum": "1304d47f397effef4107552e836ec85b9b4c687f",
+    "tarball": "https://registry.npmjs.org/sequelize/-/sequelize-1.3.7.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "sdepold",
+      "email": "sascha@depold.com"
+    }
+  ],
+  "directories": {},
+  "deprecated": "security/injection issue with limit/offset fixed in 3.17.0",
+  "_shasum": "1304d47f397effef4107552e836ec85b9b4c687f",
+  "_resolved": "https://registry.npmjs.org/sequelize/-/sequelize-1.3.7.tgz",
+  "_from": "sequelize@1.3.7"
 }
