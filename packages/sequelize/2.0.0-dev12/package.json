@@ -1,0 +1,94 @@
+{
+  "name": "sequelize",
+  "description": "Multi dialect ORM for Node.JS",
+  "version": "2.0.0-dev12",
+  "author": "Sascha Depold <sascha@depold.com>",
+  "contributors": [
+    {
+      "name": "Sascha Depold",
+      "email": "sascha@depold.com"
+    },
+    {
+      "name": "Meg Sharkey",
+      "email": "meg@metamarkets.com"
+    },
+    {
+      "name": "Chase Geigle",
+      "email": "sky@skytrife.com"
+    },
+    {
+      "name": "Jan Aagaard Meier",
+      "email": [
+        "janzeh@gmail.com",
+        "jmei@itu.dk"
+      ]
+    },
+    {
+      "name": "Daniel Durante",
+      "email": "me@danieldurante.com"
+    },
+    {
+      "name": "Mick Hansen",
+      "email": "mick.kasper.hansen@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sequelize/sequelize.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sequelize/sequelize/issues"
+  },
+  "dependencies": {
+    "lodash": "~2.4.0",
+    "underscore.string": "~2.3.0",
+    "lingo": "~0.0.5",
+    "validator": "~3.2.0",
+    "moment": "~2.5.0",
+    "dottie": "0.2.4",
+    "toposort-class": "~0.3.0",
+    "generic-pool": "2.0.4",
+    "sql": "~0.35.0",
+    "circular-json": "~0.1.5",
+    "sequelize-bluebird": "git://github.com/sequelize/bluebird.git#9df139af53c5d346ffd38df30fc9dc60c62a9c98",
+    "node-uuid": "~1.4.1"
+  },
+  "devDependencies": {
+    "sqlite3": "~2.1.12",
+    "mysql": "2.0.1",
+    "pg": "~2.8.1",
+    "watchr": "~2.4.11",
+    "chai": "~1.9.0",
+    "mocha": "~1.18.2",
+    "chai-datetime": "~1.1.1",
+    "sinon": "~1.8.1",
+    "mariasql": "0.1.20",
+    "chai-spies": "~0.5.1",
+    "lcov-result-merger": "0.0.2",
+    "istanbul": "~0.2.9",
+    "coveralls": "~2.10.0",
+    "async": "~0.2.10",
+    "coffee-script": "~1.7.1",
+    "markdox": "0.1.4",
+    "sinon-chai": "~2.5.0",
+    "jshint": ">=2.4.2"
+  },
+  "keywords": [
+    "mysql",
+    "sqlite",
+    "postgresql",
+    "postgres",
+    "orm",
+    "nodejs",
+    "object relational mapper"
+  ],
+  "main": "index",
+  "scripts": {
+    "test": "make all",
+    "docs": "node_modules/.bin/yuidoc . -o docs"
+  },
+  "engines": {
+    "node": ">=0.6.21"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,60 @@
+language: node_js
+
+sudo: false
+
+node_js:
+  - "4"
+
+cache:
+  directories:
+    - node_modules
+
+env:
+  global:
+    - CC=clang
+    - CXX=clang++
+    - npm_config_clang=1
+    - COVERALLS_REPO_TOKEN=751SiA6QhY5EH4P2ygq7JFWulqiD2ETXO
+    - COVERALLS_PARALLEL=true
+  matrix:
+    - DIALECT=mysql
+    - DIALECT=postgres
+    - DIALECT=postgres-native
+    - DIALECT=sqlite
+    - DIALECT=mssql
+
+addons:
+  apt:
+    sources:
+      - llvm-toolchain-precise-3.6
+      - ubuntu-toolchain-r-test
+    packages:
+      - clang-3.6
+      - g++-4.8
+
+addons:
+  postgresql: "9.4"
+
+before_script:
+  - "mysql -e 'create database sequelize_test;'"
+  - "psql -c 'create database sequelize_test;' -U postgres"
+  - "psql sequelize_test -c 'create extension postgis;' -U postgres"
+
+script:
+  - "npm test"
+
+matrix:
+  include:
+    - node_js: "6"
+      env: COVERAGE=true DIALECT=mysql
+    - node_js: "6"
+      env: COVERAGE=true DIALECT=postgres
+    - node_js: "6"
+      env: COVERAGE=true DIALECT=postgres-native
+    - node_js: "6"
+      env: COVERAGE=true DIALECT=sqlite
+    - node_js: "6"
+      env: COVERAGE=true DIALECT=mssql
+
+notifications:
+  webhooks: https://coveralls.io/webhook?repo_token=$COVERALLS_REPO_TOKEN

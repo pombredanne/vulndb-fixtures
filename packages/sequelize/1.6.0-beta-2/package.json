@@ -1,0 +1,66 @@
+{
+  "name": "sequelize",
+  "description": "Multi dialect ORM for Node.JS",
+  "version": "1.6.0-beta-2",
+  "author": "Sascha Depold <sascha@depold.com>",
+  "contributors": [
+    {
+      "name": "Sascha Depold",
+      "email": "sascha@depold.com"
+    },
+    {
+      "name": "Meg Sharkey",
+      "email": "meg@metamarkets.com"
+    },
+    {
+      "name": "Chase Geigle",
+      "email": "sky@skytrife.com"
+    },
+    {
+      "name": "Jan Aagaard Meier (Innofluence)",
+      "email": "jam@innofluence.com"
+    }
+  ],
+  "dependencies": {
+    "mysql": "~2.0.0-alpha3",
+    "underscore": "~1.4.0",
+    "underscore.string": "~2.3.0",
+    "lingo": "~0.0.5",
+    "validator": "0.3.x",
+    "moment": "~1.7.0",
+    "commander": "~0.6.0",
+    "generic-pool": "1.0.9"
+  },
+  "devDependencies": {
+    "jasmine-node": "1.0.17",
+    "sqlite3": "~2.1.5",
+    "pg": "~0.8.7",
+    "buster": "~0.6.0",
+    "dox-foundation": "~0.3.0"
+  },
+  "keywords": [
+    "mysql",
+    "orm",
+    "nodejs",
+    "object relational mapper"
+  ],
+  "main": "index",
+  "scripts": {
+    "test": "npm run test-jasmine && npm run test-buster",
+    "test-jasmine": "./node_modules/.bin/jasmine-node spec-jasmine/",
+    "test-buster": "npm run test-buster-mysql && npm run test-buster-postgres && npm run test-buster-postgres-native && npm run test-buster-sqlite",
+    "test-buster-travis": "./node_modules/.bin/buster-test",
+    "test-buster-mysql": "DIALECT=mysql ./node_modules/.bin/buster-test",
+    "test-buster-postgres": "DIALECT=postgres ./node_modules/.bin/buster-test",
+    "test-buster-postgres-native": "DIALECT=postgres-native ./node_modules/.bin/buster-test",
+    "test-buster-sqlite": "DIALECT=sqlite ./node_modules/.bin/buster-test",
+    "generate-docs": "node_modules/.bin/dox-foundation --source ./lib --title Sequelize"
+  },
+  "bin": {
+    "sequelize": "bin/sequelize"
+  },
+  "engines": {
+    "node": ">=0.4.6"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,77 @@
+{
+  "name": "sequelize",
+  "description": "Multi dialect ORM for Node.JS",
+  "version": "2.0.0-alpha1",
+  "author": "Sascha Depold <sascha@depold.com>",
+  "contributors": [
+    {
+      "name": "Sascha Depold",
+      "email": "sascha@depold.com"
+    },
+    {
+      "name": "Meg Sharkey",
+      "email": "meg@metamarkets.com"
+    },
+    {
+      "name": "Chase Geigle",
+      "email": "sky@skytrife.com"
+    },
+    {
+      "name": "Jan Aagaard Meier (Innofluence)",
+      "email": "jam@innofluence.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sequelize/sequelize.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sequelize/sequelize/issues"
+  },
+  "dependencies": {
+    "lodash": "~1.2.1",
+    "underscore.string": "~2.3.0",
+    "lingo": "~0.0.5",
+    "validator": "1.1.1",
+    "moment": "~1.7.0",
+    "commander": "~0.6.0",
+    "dottie": "0.0.6-1",
+    "toposort-class": "0.1.4",
+    "generic-pool": "2.0.3",
+    "promise": "~3.0.0"
+  },
+  "devDependencies": {
+    "jasmine-node": "1.5.0",
+    "sqlite3": "~2.1.5",
+    "mysql": "~2.0.0-alpha7",
+    "pg": "~0.10.2",
+    "buster": "~0.6.3",
+    "watchr": "~2.2.0",
+    "yuidocjs": "~0.3.36"
+  },
+  "keywords": [
+    "mysql",
+    "orm",
+    "nodejs",
+    "object relational mapper"
+  ],
+  "main": "index",
+  "scripts": {
+    "test": "npm run test-jasmine && npm run test-buster",
+    "test-jasmine": "jasmine-node spec-jasmine/",
+    "test-buster": "npm run test-buster-mysql && npm run test-buster-postgres && npm run test-buster-postgres-native && npm run test-buster-sqlite",
+    "test-buster-travis": "buster-test",
+    "test-buster-mysql": "DIALECT=mysql buster-test",
+    "test-buster-postgres": "DIALECT=postgres buster-test",
+    "test-buster-postgres-native": "DIALECT=postgres-native buster-test",
+    "test-buster-sqlite": "DIALECT=sqlite buster-test",
+    "docs": "node_modules/.bin/yuidoc . -o docs"
+  },
+  "bin": {
+    "sequelize": "bin/sequelize"
+  },
+  "engines": {
+    "node": ">=0.4.6"
+  },
+  "license": "MIT"
+}
