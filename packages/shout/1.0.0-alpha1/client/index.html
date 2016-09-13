@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+	<head>
+	
+	<title>Shout — The modern IRC client</title>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	
+	<link rel="stylesheet" href="/style.css">
+	
+	</head>
+	<body>
+	
+	<div id="wrap">
+	<div id="viewport">
+	
+	<aside id="sidebar"></aside>
+	<div id="chat"></div>
+	
+	</div>
+	</div>
+	
+	<script type="text/html" id="networks">
+	{{#each networks}}
+	<div id="network-{{id}}" data-nick="{{nick}}" class="network">
+		{{partial "#channels"}}
+	</div>
+	{{/each}}
+	</script>
+	
+	<script type="text/html" id="channels">
+	{{#each channels}}
+	<button id="channel-{{id}}" class="channel">
+		{{name}}
+	</button>
+	{{/each}}
+	</script>
+	
+	<script type="text/html" id="windows">
+	{{#each windows}}
+	<div id="window-{{id}}" class="window {{type}}">
+		<div class="title">
+			<h1>{{name}}</h1>
+			<button class="close">Close</button>
+		</div>
+		<div class="users">
+			{{partial "#users"}}
+		</div>
+		<div class="messages">
+			{{partial "#messages"}}
+		</div>
+		<form onSubmit="return false;">
+			<input type="text" class="input" data-target="{{id}}"/>
+			<input type="submit" style="display: none;"/>
+		</form>
+	</div>
+	{{/each}}
+	</script>
+	
+	<script type="text/html" id="users">
+	<div class="count">
+		Users: {{users.length}}
+	</div>
+	{{#each users}}
+	<button class="user">
+		{{name}}
+	</button>
+	{{/each}}
+	</script>
+	
+	<script type="text/html" id="messages">
+	{{#each messages}}
+	<div class="msg {{type}}">
+		<span class="time">
+			{{time}}
+		</span>
+		<button class="user">
+			{{from}}
+		</button>
+		{{#if type}}
+		<span class="type">
+			{{type}}
+		</span>
+		{{/if}}
+		<span class="text">
+			{{{uri text}}}
+		</span>
+	</div>
+	{{/each}}
+	</script>
+	
+	<script src="/js/jquery.js"></script>
+	<script src="/js/jquery.plugins.js"></script>
+	<script src="/js/uri.js"></script>
+	<script src="/js/handlebars.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/js/chat.js"></script>
+	
+	</body>
+</html>

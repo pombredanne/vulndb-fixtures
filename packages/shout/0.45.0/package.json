@@ -1,0 +1,53 @@
+{
+  "name": "shout",
+  "description": "The self-hosted web IRC client",
+  "version": "0.45.0",
+  "author": "Mattias Erming",
+  "preferGlobal": true,
+  "bin": {
+    "shout": "index.js"
+  },
+  "main": "http://localhost:9000/",
+  "node-main": "./index.js",
+  "window": {
+    "title": "Shout",
+    "toolbar": false,
+    "height": 640,
+    "width": 1024
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erming/shout.git"
+  },
+  "scripts": {
+    "start": "node index"
+  },
+  "keywords": [
+    "browser",
+    "web",
+    "chat",
+    "client",
+    "irc",
+    "server"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "cheerio": "^0.17.0",
+    "commander": "^2.3.0",
+    "express": "^4.9.5",
+    "lodash": "~2.4.1",
+    "mkdirp": "^0.5.0",
+    "moment": "~2.7.0",
+    "read": "^1.0.5",
+    "slate-irc": "~0.7.3",
+    "socket.io": "~1.0.6",
+    "superagent": "^0.18.2"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "handlebars": "^2.0.0"
+  }
+}
