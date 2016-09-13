@@ -2,7 +2,7 @@
 
 CURRENT_DIR=`dirname $0`
 PACKAGE=$1
-VERSIONS=$(npm view $PACKAGE versions | tr -d "'[,]")
+VERSIONS=$(npm view $PACKAGE versions --json | tr -d "'[,]")
 
 cd $CURRENT_DIR/../packages
 
