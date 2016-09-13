@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+	<head>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<title>Shout</title>
+	
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	</head>
+	<body class="preload">
+	
+	<div id="wrap">
+	<div id="viewport">
+		<aside id="sidebar">
+			<section>
+				<h1>Shout</h1>
+				<a href="#sign-in">Sign in</a>
+			</section>
+			<div id="networks">
+			</div>
+		</aside>
+		<div id="main">
+			<div id="windows">
+			<div id="sign-in" class="window">
+				<div class="wrap">
+					<h1>Shout</h1>
+					<h2>You need to sign in to continue.</h2>
+					<form id="sign-in-form" method="post">
+						<h3>Password:</h3>
+						<input type="password" id="sign-in-input">
+						<button type="submit" class="btn">
+							Sign in
+						</button>
+					</form>
+				</div>
+			</div>
+			</div>
+			<div id="chat">
+			</div>
+		</div>
+	</div>
+	</div>
+	
+	<div id="templates">
+		<script type="text/html" class="networks">
+		{{#each networks}}
+		<section id="network-{{id}}" class="network">
+			<h2>{{name}}</h2>
+			{{partial "channels"}}
+		</section>
+		{{/each}}
+		</script>
+		
+		<script type="text/html" class="channels">
+		{{#each channels}}
+		<a href="#window-{{id}}" id="channel-{{id}}" class="{{type}}">
+			<span class="badge"></span>
+			<span class="close"></span>
+			{{name}}
+		</a>
+		{{/each}}
+		</script>
+		
+		<script type="text/html" class="windows">
+		{{#each windows}}
+		<div id="window-{{id}}" class="window {{type}}" data-id="{{id}}">
+			<div class="sidebar">
+				{{partial "meta"}}
+				<ul class="users">
+					{{partial "users"}}
+				</ul>
+			</div>
+			<div class="chat">
+				{{#equal <%= messages %> messages.length}}
+				<button class="show-more" data-id="{{id}}">
+					Show more
+				</button>
+				{{/equal}}
+				<div class="messages">
+					{{partial "messages"}}
+				</div>
+			</div>
+			<header class="header">
+				<button class="lt"></button>
+				<button class="rt"></button>
+				{{partial "meta"}}
+			</header>
+			<form class="form" data-target="{{id}}">
+				<input class="submit" tabindex="-1" type="submit" >
+				<input class="input">
+			</form>
+		</div>
+		{{/each}}
+		</script>
+		
+		<script type="text/html" class="meta">
+		<div class="meta">
+			<h1>
+				{{name}}
+			</h1>
+			{{#if users}}
+			<span class="count">
+				{{users.length}}
+				users
+			</span>
+			{{else}}
+			<span class="type">
+				{{type}}
+			</span>
+			{{/if}}
+		</div>
+		</script>
+		
+		<script type="text/html" class="users">
+		{{#each users}}
+		<li>
+			<a href="#{{name}}" class="user">
+				{{mode}}{{name}}
+			</a>
+		</li>
+		{{/each}}
+		</script>
+		
+		<script type="text/html" class="messages">
+		{{#each messages}}
+		<div class="row {{type}}">
+			<span class="from">
+				<a href="#{{from}}" class="user">{{from}}</a>
+			</span>
+			<span class="text">
+				{{#if type}}
+				<em class="type">
+					{{type}}
+				</em>
+				{{/if}}
+				{{{uri text}}}
+			</span>
+			<span class="time">
+				{{time}}
+			</span>
+		</div>
+		{{/each}}
+		</script>
+	</div>
+	
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/js/jquery.js"></script>
+	<script src="/js/jquery.plugins.js"></script>
+	<script src="/js/uri.js"></script>
+	<script src="/js/handlebars.js"></script>
+	<script src="/js/chat.js"></script>
+	
+	</body>
+</html>

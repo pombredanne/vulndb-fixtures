@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+	<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Shout</title>
+
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link id="theme" rel="stylesheet" href="<%=theme%>">
+
+	<link rel="shortcut icon" href="/img/favicon.png">
+
+	</head>
+	<body class="<%= public ? "public" : "" %>">
+
+	<div id="wrap">
+	<div id="viewport">
+		<aside id="sidebar">
+			<div class="networks"></div>
+			<div class="empty">
+				You're not connected to any networks yet.
+			</div>
+			<footer id="footer">
+				<button class="icon sign-in" data-target="#sign-in" data-title="Sign in" data-placement="top" title="Sign in to Shout"></button>
+				<button class="icon connect" data-target="#connect" data-title="Connect" data-placement="top" title="Connect to network"></button>
+				<button class="icon settings" data-target="#settings" data-title="Settings" data-placement="top" title="Client settings"></button>
+				<button id="sign-out" class="icon sign-out" data-placement="top" title="Sign out"></button>
+			</footer>
+		</aside>
+		<div id="main">
+			<div id="windows">
+				<div id="chat"></div>
+				<div id="sign-in" class="window">
+					<form class="container" action="">
+						<div class="row">
+							<div class="col-xs-12">
+								<h1 class="title">Sign in</h1>
+							</div>
+							<div class="col-xs-12">
+								<label>
+								Username
+								<input class="input" name="user">
+								</label>
+							</div>
+							<div class="col-xs-12">
+								<label class="port">
+								Password
+								<input class="input" type="password" name="password">
+								</label>
+							</div>
+							<div class="col-xs-12 error" style="display: none;">
+								Authentication failed.
+							</div>
+							<div class="col-xs-12">
+								<button type="submit" class="btn">
+									Sign in
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div id="connect" class="window">
+					<form class="container" action="">
+						<div class="row">
+							<div class="col-xs-12">
+								<h1 class="title">Connect</h1>
+							</div>
+							<div class="col-xs-8">
+								<label>
+								Server
+								<input class="input" name="host" value="irc.freenode.org">
+								</label>
+							</div>
+							<div class="col-xs-4">
+								<label class="port">
+								Port
+								<input class="input" name="port" value="6667">
+								</label>
+							</div>
+							<div class="col-xs-5">
+								<label>
+								Nick
+								<input class="input" name="nick" value="shout-user">
+								</label>
+							</div>
+							<div class="col-xs-7">
+								<label>
+								Real Name
+								<input class="input" name="realname" class="input" value="Shout User">
+								</label>
+							</div>
+							<div class="col-xs-12">
+								<label>
+								Channels
+								<input class="input" name="join" class="input" value="#shout-irc">
+								</label>
+							</div>
+							<div class="col-xs-12">
+								<button type="submit" class="btn">
+									Connect
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div id="settings" class="window">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12">
+								<h1 class="title">Settings</h1>
+							</div>
+							<div class="col-sm-12">
+								<h2>Sound</h2>
+							</div>
+							<div class="col-sm-12">
+								<label class="opt">
+								<input type="checkbox" name="notification">
+								Enable notification sound
+								</label>
+							</div>
+							<div class="col-sm-12">
+								<div class="opt">
+									<button id="play">Play sound</button>
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<h2>About Shout</h2>
+							</div>
+							<div class="col-sm-12">
+								<p class="about">
+									You're currently running version <small><%=version%></small><br>
+									<a href="http://github.com/erming/shout" target="_blank">Check for updates</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<form id="form" action="">
+				<div class="inner">
+					<input id="submit" tabindex="-1" type="submit">
+					<input id="input" class="mousetrap">
+				</div>
+			</form>
+		</div>
+	</div>
+	</div>
+
+	<div id="templates">
+		<script type="text/html" class="networks">
+		{{#each networks}}
+		<section id="network-{{id}}" class="network">
+			{{partial "channels"}}
+		</section>
+		{{/each}}
+		</script>
+
+		<script type="text/html" class="channels">
+		{{#each channels}}
+		<button data-id="{{id}}" data-target="#chan-{{id}}" data-title="{{name}}" class="chan {{type}}">
+			<span class="badge"></span>
+			<span class="close"></span>
+			{{name}}
+		</button>
+		{{/each}}
+		</script>
+
+		<script type="text/html" class="chat">
+		{{#each channels}}
+		<div id="chan-{{id}}" data-id="{{id}}" data-type="{{type}}" class="chan {{type}}">
+			<div class="header">
+				<button class="lt"></button>
+				<button class="rt"></button>
+				<span class="title">{{name}}</span>
+				<span class="topic">{{type}} </span>
+			</div>
+			<div class="chat">
+				{{#equal 100 messages.length}}
+				<button class="show-more" data-id="{{id}}">
+					Show more
+				</button>
+				{{/equal}}
+				<div class="messages">
+					{{partial "messages"}}
+				</div>
+			</div>
+			<aside class="sidebar">
+				<div class="users">
+					{{partial "users"}}
+				</div>
+			</aside>
+		</div>
+		{{/each}}
+		</script>
+
+		<script type="text/html" class="users">
+		{{#if users.length}}
+		<div class="count">
+			<input class="search" placeholder="{{users.length}} users">
+		</div>
+		{{/if}}
+		<div class="names">
+			{{#each users}}
+			<button class="user">{{mode}}{{name}}</button>
+			{{/each}}
+		</div>
+		</script>
+
+		<script type="text/html" class="messages">
+		{{#each messages}}
+		<div class="msg {{type}}">
+			<span class="time">
+				{{tz time}}
+			</span>
+			<span class="from">
+				{{#if from}}
+				<button class="user">{{from}}</button>
+				{{/if}}
+			</span>
+			<span class="text">
+				<em class="type">{{type}}</em>
+				{{#equal type "image"}}
+				<img src="{{text}}" class="image">
+				{{else}}
+				{{{uri text}}}
+				{{/equal}}
+			</span>
+		</div>
+		{{/each}}
+		</script>
+	</div>
+
+	<script src="js/libs.min.js"></script>
+	<script src="js/chat.js"></script>
+
+	</body>
+</html>

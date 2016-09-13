@@ -1,0 +1,13 @@
+{
+	"user": "example",
+	"password": "password",
+	"networks": [
+		{
+			"host": "irc.rizon.net",
+			"port": 6667,
+			"nick": "example",
+			"realname": "Example User",
+			"join": "#foo, #bar"
+		}
+	]
+}

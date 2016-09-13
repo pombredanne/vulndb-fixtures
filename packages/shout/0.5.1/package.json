@@ -1,0 +1,33 @@
+{
+  "name": "shout",
+  "description": "The modern IRC client",
+  "version": "0.5.1",
+  "homepage": "http://github.com/erming/shout",
+  "author": {
+    "name": "Mattias Erming",
+    "email": "mattias@mattiaserming.com"
+  },
+  "dependencies": {
+    "lodash": "~2.4.1",
+    "slate-irc": "https://github.com/erming/slate-irc/tarball/master",
+    "moment": "~2.5.1",
+    "connect": "~2.14.3",
+    "socket.io": "~0.9.16"
+  },
+  "keywords": [
+    "browser",
+    "chat",
+    "client",
+    "irc",
+    "server",
+    "web"
+  ],
+  "main": "./index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erming/shout.git"
+  }
+}
